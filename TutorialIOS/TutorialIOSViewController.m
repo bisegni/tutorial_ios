@@ -18,7 +18,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.switchCompletionState.on = NO;
+	self.textFieldToDoTitle.delegate = self;
+	
+	if(self.currentToDo) {
+		self.switchCompletionState.on = self.currentToDo.completed;
+		self.textFieldToDoTitle.text = self.currentToDo.stringToDoTitle;
+	} else {
+		self.switchCompletionState.on = NO;
+	}
 }
 
 - (void)didReceiveMemoryWarning
@@ -30,14 +37,29 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue
                   sender:(id)sender
 {
-    if(sender != self.buttonSave) return;
-    NSLog(@"Save");
+    if(sender != self.buttonSave) {
+		return;
+	}
+    NSLog(@"Save new data");
+	self.currentToDo = [[TutorialIOSToDo alloc] init];
+	self.currentToDo.stringToDoTitle = self.textFieldToDoTitle.text;
+	self.currentToDo.completed = self.switchCompletionState.on;
 }
 
 - (IBAction)switchCompletionAction:(UISwitch *)sender
                           forEvent:(UIEvent *)event {
-    if(sender.on) {
-        NSLog(@"Set the todo as completed");
-    }
+	
+}
+//on editing did ended we get the title
+- (IBAction)toDotitle:(UITextField *)sender {
+	//self.currentToDo.stringToDoTitle = sender.text;
+}
+
+//delegate method:
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField setUserInteractionEnabled:YES];
+    [textField resignFirstResponder];
+    return YES;
 }
 @end

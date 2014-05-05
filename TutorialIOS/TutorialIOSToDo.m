@@ -16,9 +16,9 @@
 
 @implementation TutorialIOSToDo
 
-- (void)markAsCompleted:(BOOL)isComplete {
-    _isComplete = isComplete;
-    if(_isComplete)
+- (void)setCompleted:(BOOL)completed {
+    _completed = completed;
+    if(_completed)
         _dateCompletion = [NSDate date];
     else
         _dateCompletion = nil;

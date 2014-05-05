@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aa3-mw-cug">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aa3-mw-cug">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -26,17 +26,20 @@
                                 <rect key="frame" x="65" y="74" width="235" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="toDotitle:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="4rl-wc-WSi"/>
+                                </connections>
                             </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rPB-ku-JWt">
-                                <rect key="frame" x="164" y="133" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rPB-ku-JWt">
+                                <rect key="frame" x="251" y="162" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="switchCompletionAction:forEvent:" destination="vXZ-lx-hvc" eventType="valueChanged" id="p5F-Vg-DcF"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Completion state:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjN-F7-VcW">
-                                <rect key="frame" x="20" y="138" width="136" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjN-F7-VcW">
+                                <rect key="frame" x="153" y="167" width="90" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -44,12 +47,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0IW-dZ-dC7" firstAttribute="leading" secondItem="QrB-kK-APW" secondAttribute="trailing" constant="8" id="78G-S2-xNP"/>
-                            <constraint firstItem="QrB-kK-APW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="GcA-I1-0ty"/>
-                            <constraint firstItem="0IW-dZ-dC7" firstAttribute="leading" secondItem="QrB-kK-APW" secondAttribute="trailing" constant="8" id="kkz-PC-vsA"/>
-                            <constraint firstAttribute="trailing" secondItem="0IW-dZ-dC7" secondAttribute="trailing" constant="20" id="lLC-XX-bEb"/>
-                            <constraint firstItem="QrB-kK-APW" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="14" id="vX5-mG-ZhE"/>
-                            <constraint firstItem="0IW-dZ-dC7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="yVc-yz-Aw0"/>
+                            <constraint firstItem="0IW-dZ-dC7" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="10" id="7Z3-QE-fde"/>
+                            <constraint firstItem="QrB-kK-APW" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="14" id="Jce-0d-J5I"/>
+                            <constraint firstItem="rPB-ku-JWt" firstAttribute="trailing" secondItem="0IW-dZ-dC7" secondAttribute="trailing" id="Ofm-PF-aEq"/>
+                            <constraint firstItem="0IW-dZ-dC7" firstAttribute="leading" secondItem="QrB-kK-APW" secondAttribute="trailing" constant="8" id="Ovz-e3-r2l"/>
+                            <constraint firstItem="rPB-ku-JWt" firstAttribute="leading" secondItem="xjN-F7-VcW" secondAttribute="trailing" constant="8" symbolic="YES" id="VTj-zn-cTx"/>
+                            <constraint firstItem="0IW-dZ-dC7" firstAttribute="leading" secondItem="QrB-kK-APW" secondAttribute="trailing" constant="8" id="YLZ-Qr-djM"/>
+                            <constraint firstItem="QrB-kK-APW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="mIq-vn-i8Z"/>
+                            <constraint firstItem="rPB-ku-JWt" firstAttribute="centerY" secondItem="xjN-F7-VcW" secondAttribute="centerY" id="mnm-Me-EHj"/>
+                            <constraint firstAttribute="trailing" secondItem="0IW-dZ-dC7" secondAttribute="trailing" constant="20" id="sTw-pR-hbJ"/>
+                            <constraint firstItem="rPB-ku-JWt" firstAttribute="top" secondItem="0IW-dZ-dC7" secondAttribute="bottom" constant="58" id="zeI-aP-KCJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="To-Do" id="kBe-L6-3Dl">
@@ -85,7 +92,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1na-CG-2Yd">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="toDoCell" id="1na-CG-2Yd">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1na-CG-2Yd" id="o2Z-T9-pxa">
@@ -102,7 +109,7 @@
                     <navigationItem key="navigationItem" id="p9I-Pn-6hO">
                         <barButtonItem key="rightBarButtonItem" title="New" id="wSG-WE-eQ0">
                             <connections>
-                                <segue destination="63W-VX-Tr7" kind="modal" id="viW-fL-gKd"/>
+                                <segue destination="63W-VX-Tr7" kind="modal" identifier="TodoEditing" id="viW-fL-gKd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -8,6 +8,8 @@
 
 #import "TutorialIOSTableViewController.h"
 
+//used for request the new created todo item
+#import "TutorialIOSViewController.h"
 @interface TutorialIOSTableViewController ()
 
 @end
@@ -28,10 +30,13 @@
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	//initialize the array
+	_toDoItems = [NSMutableArray arrayWithCapacity:3];
+	_currentEditingIndex = -1;
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,35 +46,61 @@
 }
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
-    
+    NSLog(@"unwindToList");
+	if(self.currentEditingIndex <0 ) {
+		TutorialIOSViewController *editing = [segue sourceViewController];
+		if(editing.currentToDo != nil) {
+			[self.toDoItems addObject:editing.currentToDo];
+			[self.tableView reloadData];
+		}
+	} else {
+		//i am in editing
+		[self.tableView reloadData];
+	}
+	
+	_currentEditingIndex = -1;
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.toDoItems.count;
 }
 
 /*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+ */
+- (UITableViewCell *)tableView:(UITableView *)tableView
+		 cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"toDoCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    
+	TutorialIOSToDo *toDoItem = [self.toDoItems objectAtIndex:indexPath.row];
+    cell.textLabel.text = toDoItem.stringToDoTitle;
+	if(toDoItem.completed) {
+		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	} else {
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	}
     return cell;
 }
-*/
+
+//row selection
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	_currentEditingIndex = indexPath.row;
+	[self performSegueWithIdentifier:@"TodoEditing"
+							  sender:self];
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -111,13 +142,18 @@
 
 /*
 #pragma mark - Navigation
-
+*/
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+	if(self.currentEditingIndex <0 ) return;
+	
+	UINavigationController *editing_vc = [segue destinationViewController];
+	TutorialIOSViewController  *editing = editing_vc.viewControllers[0];
+	editing.currentToDo = [self.toDoItems objectAtIndex:self.currentEditingIndex];
 }
-*/
+
 
 @end

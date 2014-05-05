@@ -12,7 +12,7 @@
     //todo title
 @property NSString              *stringToDoTitle;
     //complete flag
-@property(nonatomic) BOOL       isComplete;
+@property(nonatomic) BOOL       completed;
     //creation date
 @property(readonly) NSDate      *dateCreation;
 @end

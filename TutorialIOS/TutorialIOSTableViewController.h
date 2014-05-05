@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TutorialIOSToDo.h"
 @interface TutorialIOSTableViewController : UITableViewController
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue;
+
+@property(readonly) NSMutableArray *toDoItems;
+
+@property(readonly) int currentEditingIndex;
 @end
