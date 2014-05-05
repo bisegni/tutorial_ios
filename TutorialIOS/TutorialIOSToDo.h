@@ -18,4 +18,6 @@
 @property(nonatomic) BOOL       completed;
     //creation date
 @property(readonly) NSDate      *dateCreation;
+
+-(NSDate*) getCompletionDate;
 @end

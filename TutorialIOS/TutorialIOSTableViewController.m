@@ -10,6 +10,10 @@
 
 //used for request the new created todo item
 #import "TutorialIOSViewController.h"
+
+//used for table cell customization
+#import "TutorialIOSToDoTableViewCell.h"
+
 @interface TutorialIOSTableViewController ()
 
 @end
@@ -91,12 +95,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
 		 cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"toDoCell" forIndexPath:indexPath];
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+	
+    TutorialIOSToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"toDoCell" forIndexPath:indexPath];
     
     // Configure the cell...
 	TutorialIOSToDo *toDoItem = [self.toDoItems objectAtIndex:indexPath.row];
-    cell.textLabel.text = toDoItem.stringToDoTitle;
+    cell.title.text = toDoItem.stringToDoTitle;
+	
+	//show completion info if needed
+	[cell showCompletionInfo:toDoItem.completed];
+	
 	if(toDoItem.completed) {
+		//set completion info
+		cell.completionDate.text = [dateFormatter stringFromDate:[toDoItem getCompletionDate]];
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	} else {
 		cell.accessoryType = UITableViewCellAccessoryNone;

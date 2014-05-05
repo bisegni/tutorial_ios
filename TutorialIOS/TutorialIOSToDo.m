@@ -23,4 +23,9 @@
     else
         _dateCompletion = nil;
 }
+
+-(NSDate*) getCompletionDate {
+	return self.dateCompletion;
+}
 @end
+

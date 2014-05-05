@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321A1FC11917F34B0015FF14 /* TutorialIOSToDoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 321A1FC01917F34B0015FF14 /* TutorialIOSToDoTableViewCell.m */; };
 		32A782721902A91F00BD630B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A782711902A91F00BD630B /* Foundation.framework */; };
 		32A782741902A91F00BD630B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A782731902A91F00BD630B /* CoreGraphics.framework */; };
 		32A782761902A91F00BD630B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A782751902A91F00BD630B /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		321A1FBF1917F34B0015FF14 /* TutorialIOSToDoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialIOSToDoTableViewCell.h; sourceTree = "<group>"; };
+		321A1FC01917F34B0015FF14 /* TutorialIOSToDoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialIOSToDoTableViewCell.m; sourceTree = "<group>"; };
 		32A7826E1902A91F00BD630B /* TutorialIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorialIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A782711902A91F00BD630B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32A782731902A91F00BD630B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -129,6 +132,8 @@
 				32A782781902A91F00BD630B /* Supporting Files */,
 				32A782A91902B6EA00BD630B /* TutorialIOSToDo.h */,
 				32A782AA1902B6EA00BD630B /* TutorialIOSToDo.m */,
+				321A1FBF1917F34B0015FF14 /* TutorialIOSToDoTableViewCell.h */,
+				321A1FC01917F34B0015FF14 /* TutorialIOSToDoTableViewCell.m */,
 			);
 			path = TutorialIOS;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				32A782A81902ABC300BD630B /* TutorialIOSTableViewController.m in Sources */,
 				32A782881902A91F00BD630B /* TutorialIOSViewController.m in Sources */,
 				32A782AB1902B6EA00BD630B /* TutorialIOSToDo.m in Sources */,
+				321A1FC11917F34B0015FF14 /* TutorialIOSToDoTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +475,7 @@
 				32A782A21902A91F00BD630B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		32A782A31902A91F00BD630B /* Build configuration list for PBXNativeTarget "TutorialIOSTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +484,7 @@
 				32A782A51902A91F00BD630B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
