@@ -47,13 +47,23 @@
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     NSLog(@"unwindToList");
+	
+	//add the sequential index
+	TutorialIOSViewController *editing = [segue sourceViewController];
+
 	if(self.currentEditingIndex <0 ) {
-		TutorialIOSViewController *editing = [segue sourceViewController];
+		//i'm creating a new todo
+		editing.currentToDo.keyID = [NSNumber numberWithInt:self.toDoItems.count];
+
 		if(editing.currentToDo != nil) {
+			//add new elemento to dictionary
 			[self.toDoItems addObject:editing.currentToDo];
 			[self.tableView reloadData];
 		}
 	} else {
+		//replace object
+		[self.toDoItems replaceObjectAtIndex:[editing.currentToDo.keyID integerValue]
+								  withObject:editing.currentToDo];
 		//i am in editing
 		[self.tableView reloadData];
 	}

@@ -11,6 +11,9 @@
 @interface TutorialIOSToDo : NSObject
     //todo title
 @property NSString              *stringToDoTitle;
+
+@property NSNumber				*keyID;
+
     //complete flag
 @property(nonatomic) BOOL       completed;
     //creation date

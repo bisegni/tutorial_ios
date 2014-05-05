@@ -11,11 +11,11 @@
     //private interface
 @interface TutorialIOSToDo ()
     //todo completion date private field
-@property(readonly) NSDate *dateCompletion;
+@property(readonly) NSDate		*dateCompletion;
+
 @end
 
 @implementation TutorialIOSToDo
-
 - (void)setCompleted:(BOOL)completed {
     _completed = completed;
     if(_completed)
