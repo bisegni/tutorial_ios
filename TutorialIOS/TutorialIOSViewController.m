@@ -20,9 +20,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
 	self.textFieldToDoTitle.delegate = self;
 	
-	if(self.currentToDo) {
-		self.switchCompletionState.on = self.currentToDo.completed;
-		self.textFieldToDoTitle.text = self.currentToDo.stringToDoTitle;
+	if(self.item) {
+		self.switchCompletionState.on = [[self.item valueForKey:@"completed"] boolValue];
+		self.textFieldToDoTitle.text = [[self.item valueForKey:@"title"] description];
 	} else {
 		self.switchCompletionState.on = NO;
 	}
@@ -37,13 +37,23 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue
                   sender:(id)sender
 {
+    self.save = (sender == self.buttonSave);
+    
     if(sender != self.buttonSave) {
 		return;
 	}
     NSLog(@"Save new data");
-	self.currentToDo = [[TutorialIOSToDo alloc] init];
-	self.currentToDo.stringToDoTitle = self.textFieldToDoTitle.text;
-	self.currentToDo.completed = self.switchCompletionState.on;
+    [self.item setValue:self.textFieldToDoTitle.text
+                        forKey:@"title"];
+    [self.item setValue:[NSNumber numberWithBool:self.switchCompletionState.on]
+                 forKey:@"completed"];
+    if(self.switchCompletionState.on) {
+        [self.item setValue:[NSDate date]
+                     forKey:@"dateCompletion"];
+    } else {
+        [self.item setValue:nil
+                     forKey:@"dateCompletion"];
+    }
 }
 
 - (IBAction)switchCompletionAction:(UISwitch *)sender

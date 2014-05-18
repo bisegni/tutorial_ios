@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#include <CoreData/CoreData.h>
+
 #import "TutorialIOSToDo.h"
 @interface TutorialIOSViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *buttonSave;
@@ -15,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFieldToDoTitle;
 @property (weak, nonatomic) IBOutlet UISwitch *switchCompletionState;
 
-@property TutorialIOSToDo *currentToDo;
+@property (strong, nonatomic)  NSManagedObject *item;
+@property BOOL save;
 @end

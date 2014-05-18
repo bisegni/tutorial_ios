@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+
 #import "TutorialIOSToDo.h"
-@interface TutorialIOSTableViewController : UITableViewController
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue;
+@interface TutorialIOSTableViewController : UITableViewController  <NSFetchedResultsControllerDelegate>
 
-@property(readonly) NSMutableArray *toDoItems;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
-@property(readonly) int currentEditingIndex;
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3209ED1A1928B54E00ADC3C8 /* TutorialIOData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3209ED181928B54E00ADC3C8 /* TutorialIOData.xcdatamodeld */; };
 		321A1FC11917F34B0015FF14 /* TutorialIOSToDoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 321A1FC01917F34B0015FF14 /* TutorialIOSToDoTableViewCell.m */; };
 		32A782721902A91F00BD630B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A782711902A91F00BD630B /* Foundation.framework */; };
 		32A782741902A91F00BD630B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A782731902A91F00BD630B /* CoreGraphics.framework */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3209ED191928B54E00ADC3C8 /* TutorialIOData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TutorialIOData.xcdatamodel; sourceTree = "<group>"; };
 		321A1FBF1917F34B0015FF14 /* TutorialIOSToDoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialIOSToDoTableViewCell.h; sourceTree = "<group>"; };
 		321A1FC01917F34B0015FF14 /* TutorialIOSToDoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialIOSToDoTableViewCell.m; sourceTree = "<group>"; };
 		32A7826E1902A91F00BD630B /* TutorialIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TutorialIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 				32A782AA1902B6EA00BD630B /* TutorialIOSToDo.m */,
 				321A1FBF1917F34B0015FF14 /* TutorialIOSToDoTableViewCell.h */,
 				321A1FC01917F34B0015FF14 /* TutorialIOSToDoTableViewCell.m */,
+				3209ED181928B54E00ADC3C8 /* TutorialIOData.xcdatamodeld */,
 			);
 			path = TutorialIOS;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32A782821902A91F00BD630B /* TutorialIOSAppDelegate.m in Sources */,
+				3209ED1A1928B54E00ADC3C8 /* TutorialIOData.xcdatamodeld in Sources */,
 				32A7827E1902A91F00BD630B /* main.m in Sources */,
 				32A782A81902ABC300BD630B /* TutorialIOSTableViewController.m in Sources */,
 				32A782881902A91F00BD630B /* TutorialIOSViewController.m in Sources */,
@@ -487,6 +491,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3209ED181928B54E00ADC3C8 /* TutorialIOData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3209ED191928B54E00ADC3C8 /* TutorialIOData.xcdatamodel */,
+			);
+			currentVersion = 3209ED191928B54E00ADC3C8 /* TutorialIOData.xcdatamodel */;
+			path = TutorialIOData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 32A782661902A91E00BD630B /* Project object */;
 }
