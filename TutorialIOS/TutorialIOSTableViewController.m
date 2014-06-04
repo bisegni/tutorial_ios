@@ -64,6 +64,7 @@
     } else {
         [_managedObjectContext rollback];
     }
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -123,7 +124,9 @@
 /*
 // Override to support editing the table view.
 */
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
